@@ -8,9 +8,9 @@
             </div>
         </div>
         <div v-else>
-            <h4>No galleries found</h4>
+            <p>No galleries found</p>
         </div>
-    </div>    
+    </div>
 </template>
 
 <script>
@@ -24,7 +24,7 @@ export default {
     },
 
     beforeRouteEnter(to, from, next) {
-        galleriesService.getMyGalleries(to.params.id)
+        galleriesService.getAuthorGalleries(to.params.id)
         .then(response => {
             next(vm => {
                 vm.galleries = response.data
@@ -37,7 +37,7 @@ export default {
 <style scoped>
 img {
     width:720px;
-    border-radius: 50px;
+    border-radius: 50px; 
 }
 .container {
     width: 720px;
@@ -53,3 +53,5 @@ img {
     border-radius: 50px;
 }
 </style>
+
+

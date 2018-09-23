@@ -4,10 +4,10 @@
         <div class="navbar-nav">
             <router-link class="nav-item nav-link" :to="{name:'all-galleries'}">All Galleries</router-link>
             <router-link class="nav-item nav-link" to="/login" v-if="!isAuthenticated">Login</router-link>
-            <a href="#" class="nav-item nav-link" @click="logout" v-if="isAuthenticated">Logout</a>
             <router-link class="nav-item nav-link" to="/register" v-if="!isAuthenticated">Register</router-link>
             <router-link class="nav-item nav-link" to="/my-galleries" v-if="isAuthenticated">My Galleries</router-link>
             <router-link class="nav-item nav-link" to="/create" v-if="isAuthenticated">Create New Gallery</router-link>
+            <a href="#" class="nav-item nav-link" @click="logout" v-if="isAuthenticated">Logout</a>
         </div>
     </nav>
 </template>
@@ -29,3 +29,10 @@ export default {
     }
 }
 </script>
+
+<style>
+.navbar {
+    margin-bottom: 15px;
+}
+</style>
+

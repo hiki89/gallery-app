@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app">
     <NavBar :isAuthenticated="isAuthenticated" @userAuthenticated="toggleAuthenticated"/>
     <router-view @userAuthenticated="toggleAuthenticated"></router-view>
   </div>
@@ -30,5 +30,7 @@ export default {
 </script>
 
 <style>
-
+.app {
+  background-color: #eceaff;
+}
 </style>

@@ -6,6 +6,10 @@ export default class Auth {
         this.setAuthorizationHeader();
     }
 
+    getUserId() {
+        return localStorage.getItem('user_id')
+    }
+
     isAuthenticated() {
         return !!localStorage.getItem('token');
     }
@@ -27,8 +31,10 @@ export default class Auth {
     login(email, password) {
         return axios.post('auth/login', {email, password})
         .then(response => {
+            const userId = response.data.user_id;
             const token = response.data.access_token;
             localStorage.setItem('token', token);
+            localStorage.setItem('user_id', userId);
             this.setAuthorizationHeader();
         });
     }
